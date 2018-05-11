@@ -1,0 +1,189 @@
+
+/********************************************************************
+	ESTILO GENERAL
+********************************************************************/
+body {
+	margin: 0;
+	font-family: Arial, Times New Roman, Verdana;
+	font-size: 0.9em;
+	background-color: #0A4493;
+	color: #00122A;
+}
+
+/***** Hacer los enlaces con forma de botón. *****/
+.enlaceBoton {
+	text-decoration: none;
+	padding: 5px;
+	margin: 5px;
+	border-top: 1px solid #00122A;
+	border-right: 2px solid #00122A;
+	border-bottom: 2px solid #00122A;
+	border-left: 1px solid #00122A;
+	border-radius: 5px;
+	background-color: #00122A;
+	color: #E7EAED;
+	cursor: pointer;
+	box-shadow: 5px 5px 6px #00122A;
+}
+/******************** 
+ WRAPPER 
+*******************/
+#wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+/******************** 
+ HEADER 
+**********************/
+#header {
+	margin: 10px 25px 0 25px;
+	min-height: 100px;
+	background-color: #E7EAED;
+	overflow: hidden;
+}
+#header .titulo {
+	margin: 50px auto 10px auto;
+	width: 60%;
+	text-align: center;
+	float: left;
+}
+#header .imagen {
+	width: 300px;
+	float: left;
+}
+
+/********************* 
+ MAIN 
+**********************/
+
+/********** COMUN EN TODAS LAS PAGINAS *********/
+#main {
+	margin: 10px 25px;
+	width: auto;
+	min-height: 350px;
+	background-color: #E7EAED;
+	padding: 25px 0;
+	overflow: hidden;
+}
+/*********************************************/
+
+/************* PAGINA INDEX ****************/
+#form-login {
+	width: 350px;
+	float: left;
+	margin-top: 80px;
+	margin-left: 200px;
+}
+#form-registro {
+	width: 350px 400px;
+	float: right;
+	margin-top: 30px;
+	margin-right: 200px;
+}
+
+
+/*********** PAGINA DE BLOG-USUARIO *************/
+#content {
+	margin: 25px auto;
+	width: 80%;
+	min-width: 300px;
+}
+#main .editor {
+	width: 90%;
+	margin: 25px auto;
+	min-height: 200px;
+}
+#main .subir {
+	width: 90%;
+	margin: 25px auto;
+	min-height: 100px;
+}
+/******************* 
+ FOOTER 
+********************/
+#footer {
+	margin: 0 25px 10px 25px;
+	width: auto;
+	background-color: #E7EAED;
+	padding: 10px;
+	overflow: hidden;
+}
+
+/************************************************************************************
+	ESTILO PARA DIFERENTES TAMAÑOS DE PANTALLA
+*************************************************************************************/
+
+/* para 1050px 0 menos */
+@media screen and (max-width: 1050px) {
+	
+	#wrapper {
+		width: 90%;
+	}
+	#form-login {
+		margin-left: 140px;
+		float: none;
+	}
+	#form-registro {
+		margin-right: 140px;
+		float: none;
+	}
+}
+
+/* para 890px o menos */
+@media screen and (max-width: 890px) {
+	#wrapper {
+		width: 95%;
+	}
+	#form-login {
+		margin-left: 80px;
+	}
+	#form-registro {
+		margin-right: 80px;
+	}
+}
+
+/* para 750px o menos */
+@media screen and (max-width: 750px) {
+	#header .titulo {
+		margin: auto;
+	}
+	#header .titulo img {
+		width: 280px;
+		height: 80px;
+	}
+	#form-login {
+		margin-left: 25px;
+	}
+	#form-registro {
+		margin-right: 25px;
+	}	
+}
+
+/* para 480px o menos */
+@media screen and (max-width: 480px) {
+	#wrapper {
+		min-width: 400px;
+	}
+	#header {
+		margin: 0;
+	}
+	#header .titulo img {
+		width: 280px;
+		height: 80px;
+	}
+	#main {
+		margin: 0;
+	}
+	#form-login {
+		margin: 0;
+	}
+	#form-registro {
+		margin: 0;
+	}
+	#footer {
+		margin: 0;
+	}
+}
+
+

@@ -1,0 +1,16 @@
+.panelGridLogin {
+    margin: 0 auto;
+}
+
+.panelLogin {
+    margin: 0 auto;
+    margin-top: 18%;
+}
+
+#top {
+    position: relative;
+    background-color: #036fab;
+    color: white;
+    padding: 5px;
+    margin: 0 auto;
+}
