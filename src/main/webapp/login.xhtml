@@ -20,10 +20,10 @@
         background-attachment:fixed;-->
         <h:form>
             
-            <p:messages autoUpdate="true" />
+            <p:messages autoUpdate="true" closable="true" />
             <p id="inicio">Inicio de sesión</p>
                             
-                <h:panelGrid styleClass="panelGridLogin" columns="2" cellpadding="6">
+            <h:panelGrid style="margin: 0 auto" columns="2" cellpadding="6" >
                     
                     <h:outputLabel for="username" value="Usuario:" />
                     <p:inputText id="username" value="#{loginController.usuario.usuario}" required="true" label="username" />
