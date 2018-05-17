@@ -9,7 +9,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 /**
- * @author Juan Ramón Lastra Díaz
+ * @author Juan Ramon Lastra Diaz
  */
 @Named
 @SessionScoped
