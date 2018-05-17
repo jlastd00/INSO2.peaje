@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -11,13 +12,18 @@
         <h:outputStylesheet name="./css/cssLayout.css"/>
         <title>Registro de vehículo</title>
     </h:head>
-    <!--HOLA CHAVALESSSSSSSSSSSS-->
+
     <h:body>
         <h:body style="background-image: url(./resources/fondo.jpg)"/>
         <h:form>            
             <h:panelGrid styleClass="panelGridLogin" columns="2" cellpadding="6" border="1">        
                 <h:outputLabel for="vehiculo" value="Vehículo:" />
-                <p:inputText id="vehiculo" required="true" label="vehiculo" />
+                <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
+                    <f:selectItem itemLabel="Coche" itemValue="coche" />
+                    <f:selectItem itemLabel="Camión" itemValue="camion" />
+                    <f:selectItem itemLabel="Motocicleta" itemValue="moto" />
+                    <f:selectItem itemLabel="Autobús" itemValue="bus" />
+                </p:selectOneMenu>
 
                 <h:outputLabel for="marca" value="Marca:" />
                 <p:inputText id="marca" required="true" label="marca" />
@@ -26,10 +32,16 @@
                 <p:inputText id="modelo" required="true" label="modelo" />
 
                 <h:outputLabel for="matricula" value="Matricula:" />
-                <p:inputText id="matricula" required="true" label="matricula" />
+                <p:inputMask id="matricula" value="#{maskView.phone}" mask="9999 aaa"/>
 
                 <h:outputLabel for="color" value="Color:" />
-                <p:inputText id="color" required="true" label="color" />
+                <input type="color"/>
+                
+                <h:outputLabel for="pago" value="Pago:" />
+                <p:selectOneRadio id="formaPago" value="#{radioView.console}">
+                    <f:selectItem itemLabel="Efectivo" itemValue="efectivo" />
+                    <f:selectItem itemLabel="Tarjeta" itemValue="tarjeta" />
+                </p:selectOneRadio>
             </h:panelGrid>
             
             <h:panelGrid styleClass="botonRegistro" columns="1" cellpadding="6"  style="margin: 0 auto">

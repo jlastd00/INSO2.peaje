@@ -47,6 +47,9 @@ public class LoginController implements Serializable {
                 if (us.getRol().equals("E")) {
                     redireccion = "/private/menuEmpleado?faces-redirect=true";
                 }
+                if (us.getRol().equals("S")) {
+                    redireccion = "/private/menuSupervisor?faces-redirect=true";
+                }
             }
             else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso: ", "Credenciales incorrectas!"));
