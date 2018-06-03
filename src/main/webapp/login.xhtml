@@ -25,20 +25,18 @@
                             
             <h:panelGrid style="margin: 0 auto" columns="2" cellpadding="6" >
                     
-                    <h:outputLabel for="username" value="Usuario:" />
-                    <p:inputText id="username" value="#{loginController.usuario.usuario}" required="true" label="username" />
-                    
-                    <h:outputLabel for="password" value="Contraseña:" />
-                    <p:password id="password" value="#{loginController.usuario.password}" required="true" label="password" />
-               
-                </h:panelGrid>
+                <h:outputLabel for="username" value="Usuario:" />
+                <p:inputText id="username" value="#{loginController.usuario.usuario}" required="true" label="username" />
+
+                <h:outputLabel for="password" value="Contraseña:" />
+                <p:password id="password" value="#{loginController.usuario.password}" required="true" label="password" />
+
+            </h:panelGrid>
                 
-                <h:panelGrid columns="1" cellpadding="6" style="margin: 0 auto">
-                    <p:commandButton type="submit" icon="ui-icon-key" value="Login" action="#{loginController.iniciarSesion()}" >
-                    </p:commandButton>
-                    
-                    
-                </h:panelGrid>
+            <h:panelGrid columns="1" cellpadding="6" style="margin: 0 auto">
+                <p:commandButton type="submit" icon="ui-icon-key" value="Login" action="#{loginController.iniciarSesion()}" >
+                </p:commandButton>       
+            </h:panelGrid>
                 
         </h:form>
         
