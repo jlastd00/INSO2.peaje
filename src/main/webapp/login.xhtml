@@ -1,53 +1,57 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Login</title>
+        <h:outputStylesheet name="./resources/css/default.css"/>
+        <h:outputStylesheet name="./resources/css/cssLayout.css"/>
+        <title>Peaje</title>
     </h:head>
+    
+    <body>
 
-    <h:body>
-        <h:body style="background-image: url(./resources/fondo.jpg)"/>
-        <!--background-size: cover;
-        background-repeat: no-repeat; 
-        background-attachment:fixed;-->
-        <h:form>
+        <ui:composition template="./WEB-INF/template/plantillaLogin.xhtml">
             
-            <p:messages autoUpdate="true" closable="true" />
-            <p id="inicio">Inicio de sesión</p>
-                            
-            <h:panelGrid style="margin: 0 auto" columns="2" cellpadding="6" >
-                    
-                <h:outputLabel for="username" value="Usuario:" />
-                <p:inputText id="username" value="#{loginController.usuario.usuario}" required="true" label="username" />
-
-                <h:outputLabel for="password" value="Contraseña:" />
-                <p:password id="password" value="#{loginController.usuario.password}" required="true" label="password" />
-
-            </h:panelGrid>
+            <ui:define name="top"> </ui:define>
+            
+            <ui:define name="content">
                 
-            <h:panelGrid columns="1" cellpadding="6" style="margin: 0 auto">
-                <p:commandButton type="submit" icon="ui-icon-key" value="Login" action="#{loginController.iniciarSesion()}" >
-                </p:commandButton>       
-            </h:panelGrid>
+                <h:form>
+            
+                    <p:messages id="mensaje" autoUpdate="true" closable="true" severity="warn, fatal" showDetail="true" />
+                    <p id="inicio">Inicio de sesión</p>
+
+                    <h:panelGrid id="panelLogin" style="margin:auto" columns="3">
+                       
+                        <h:outputLabel for="username" value="Usuario:" />
+                        <p:inputText id="username" value="#{loginController.usuario.usuario}" required="true"
+                                     requiredMessage="Usuario obligatorio"/>
+                        <p:message for="username"/>
+
+                        <h:outputLabel for="password" value="Contraseña:" />
+                        <p:password id="password" value="#{loginController.usuario.password}" required="true"
+                                    requiredMessage="Contraseña obligatoria"/>
+                        <p:message for="password"/>
+
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1" cellpadding="6" style="margin: 0 auto">
+                        <p:commandButton type="submit" icon="ui-icon-key" value="Login" update="panelLogin"
+                                        action="#{loginController.iniciarSesion()}" >
+                        </p:commandButton>       
+                    </h:panelGrid>
+
+                </h:form>
                 
-        </h:form>
-        
-        <!--<div id="top">
-            <ui:insert name="top">Top</ui:insert>
-        </div>-->
+            </ui:define>
+            
+            <ui:define name="bottom"> </ui:define>
+            
+        </ui:composition>
 
-    </h:body>
-
+    </body>
 </html>
-
-
-
-

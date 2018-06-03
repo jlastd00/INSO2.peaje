@@ -52,11 +52,13 @@ public class LoginController implements Serializable {
                 }
             }
             else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso: ", "Credenciales incorrectas!"));
+                FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso: ", "Usuario o Contraseña incorrectos!");
+                FacesContext.getCurrentInstance().addMessage(null, mensaje);
             }
         }
         catch (Exception e) {
-            //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso: ", "Credenciales incorrectas!"));
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No se ha podido iniciar sesion");
+            FacesContext.getCurrentInstance().addMessage(null, mensaje);
         }
         
         return redireccion;

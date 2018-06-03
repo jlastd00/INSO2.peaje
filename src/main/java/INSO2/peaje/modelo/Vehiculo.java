@@ -7,6 +7,7 @@ package INSO2.peaje.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -117,7 +118,63 @@ public class Vehiculo implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + this.idVehiculo;
+        hash = 67 * hash + Objects.hashCode(this.matricula);
+        hash = 67 * hash + Objects.hashCode(this.tipoVehiculo);
+        hash = 67 * hash + Objects.hashCode(this.marca);
+        hash = 67 * hash + Objects.hashCode(this.modelo);
+        hash = 67 * hash + Objects.hashCode(this.color);
+        hash = 67 * hash + Objects.hashCode(this.fechaRegistro);
+        hash = 67 * hash + Objects.hashCode(this.usuario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vehiculo other = (Vehiculo) obj;
+        if (this.idVehiculo != other.idVehiculo) {
+            return false;
+        }
+        if (!Objects.equals(this.matricula, other.matricula)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipoVehiculo, other.tipoVehiculo)) {
+            return false;
+        }
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.color, other.color)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaRegistro, other.fechaRegistro)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" + "idVehiculo=" + idVehiculo + ", matricula=" + matricula + ", tipoVehiculo=" + tipoVehiculo + 
+                ", marca=" + marca + ", modelo=" + modelo + ", color=" + color + 
+                ", fechaRegistro=" + fechaRegistro + ", usuario=" + usuario + '}';
+    }
     
     
 }

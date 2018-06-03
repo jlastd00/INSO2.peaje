@@ -5,8 +5,13 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-
-    <body>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./resources/css/default.css"/>
+        <h:outputStylesheet name="./resources/css/cssLayout.css"/>
+        <title>Registro de vehículo</title>
+    </h:head>
+    <h:body>
 
         <ui:composition template="./../WEB-INF/template/plantilla.xhtml">
 
@@ -14,11 +19,13 @@
                 
                 Bienvenido Supervisor
                 
-                <p:link href="./../registro_usuario.xhtml" value="Ir al registro" />
+                <p:separator />
                 
+                Ver datos empleados y vehiculos
+                 
             </ui:define>
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>

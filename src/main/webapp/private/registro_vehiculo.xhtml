@@ -8,12 +8,12 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputStylesheet name="./resources/css/default.css"/>
+        <h:outputStylesheet name="./resources/css/cssLayout.css"/>
         <title>Registro de vehículo</title>
     </h:head>
     
-    <body>
+    <h:body>
 
         <ui:composition template="./../WEB-INF/template/plantilla.xhtml">
 
@@ -49,7 +49,7 @@
                     </h:panelGrid>
             
                     <h:panelGrid styleClass="botonRegistro" columns="1" cellpadding="6"  style="margin: 0 auto">
-                        <p:commandButton value="Registro"  />
+                        <p:commandButton value="Registrar Vehiculo"  />
                     </h:panelGrid>
                 </h:form>
                 
@@ -57,5 +57,5 @@
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>

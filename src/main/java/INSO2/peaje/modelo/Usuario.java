@@ -6,6 +6,7 @@
 package INSO2.peaje.modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -109,7 +110,63 @@ public class Usuario implements Serializable {
     public void setRol(String rol) {
         this.rol = rol;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + this.idUsuario;
+        hash = 31 * hash + Objects.hashCode(this.dni);
+        hash = 31 * hash + Objects.hashCode(this.nombre);
+        hash = 31 * hash + Objects.hashCode(this.apellido1);
+        hash = 31 * hash + Objects.hashCode(this.apellido2);
+        hash = 31 * hash + Objects.hashCode(this.usuario);
+        hash = 31 * hash + Objects.hashCode(this.password);
+        hash = 31 * hash + Objects.hashCode(this.rol);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (this.idUsuario != other.idUsuario) {
+            return false;
+        }
+        if (!Objects.equals(this.dni, other.dni)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido1, other.apellido1)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido2, other.apellido2)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
+        if (!Objects.equals(this.rol, other.rol)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + ", dni=" + dni + ", nombre=" + nombre + 
+                ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", usuario=" + usuario + 
+                ", password=" + password + ", rol=" + rol + '}';
+    }
     
     
 }
