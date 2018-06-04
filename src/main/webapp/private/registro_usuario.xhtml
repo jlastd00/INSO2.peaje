@@ -46,6 +46,11 @@
                                     value="#{usuarioController.usuario.dni}"/>
                         <p:message for="dni"/>
                         
+                        <p:outputLabel for="email" value="Email: " />
+                        <p:inputMask id="email" required="true" mask="aaaaa@aaaaaa.aa" requiredMessage="Email obligatorio" 
+                                     value="#{usuarioController.usuario.email}"/>
+                        <p:message for="email"/>
+                        
                         <p:outputLabel for="nomUsuario" value="Usuario:" />
                         <p:inputText id="nomUsuario" required="true" requiredMessage="Nombre de usuario obligatorio" 
                                     value="#{usuarioController.usuario.usuario}"/>

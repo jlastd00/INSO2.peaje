@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -47,8 +48,11 @@ public class Vehiculo implements Serializable {
     @Column(name="color")
     private String color;
     
+    @Column(name="pago")
+    private String pago;
+    
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="fechaRegistro")
+    @Column(name="fechaRegistro", insertable = false)
     private Date fechaRegistro;
     
     @ManyToOne
@@ -103,6 +107,14 @@ public class Vehiculo implements Serializable {
         this.color = color;
     }
 
+    public String getPago() {
+        return pago;
+    }
+
+    public void setPago(String pago) {
+        this.pago = pago;
+    }
+    
     public Date getFechaRegistro() {
         return fechaRegistro;
     }
@@ -128,6 +140,7 @@ public class Vehiculo implements Serializable {
         hash = 67 * hash + Objects.hashCode(this.marca);
         hash = 67 * hash + Objects.hashCode(this.modelo);
         hash = 67 * hash + Objects.hashCode(this.color);
+        hash = 67 * hash + Objects.hashCode(this.pago);
         hash = 67 * hash + Objects.hashCode(this.fechaRegistro);
         hash = 67 * hash + Objects.hashCode(this.usuario);
         return hash;
@@ -160,6 +173,9 @@ public class Vehiculo implements Serializable {
         if (!Objects.equals(this.color, other.color)) {
             return false;
         }
+        if (!Objects.equals(this.pago, other.pago)) {
+            return false;
+        }
         if (!Objects.equals(this.fechaRegistro, other.fechaRegistro)) {
             return false;
         }
@@ -172,7 +188,7 @@ public class Vehiculo implements Serializable {
     @Override
     public String toString() {
         return "Vehiculo{" + "idVehiculo=" + idVehiculo + ", matricula=" + matricula + ", tipoVehiculo=" + tipoVehiculo + 
-                ", marca=" + marca + ", modelo=" + modelo + ", color=" + color + 
+                ", marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", pago=" + pago +
                 ", fechaRegistro=" + fechaRegistro + ", usuario=" + usuario + '}';
     }
     

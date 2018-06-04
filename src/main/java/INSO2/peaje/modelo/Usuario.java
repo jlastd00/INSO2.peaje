@@ -38,6 +38,9 @@ public class Usuario implements Serializable {
     @Column(name="apellido2")
     private String apellido2;
     
+    @Column(name="email")
+    private String email;
+    
     @Column(name="usuario")
     private String usuario;
     
@@ -87,6 +90,14 @@ public class Usuario implements Serializable {
         this.apellido2 = apellido2;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public String getUsuario() {
         return usuario;
     }
@@ -119,6 +130,7 @@ public class Usuario implements Serializable {
         hash = 31 * hash + Objects.hashCode(this.nombre);
         hash = 31 * hash + Objects.hashCode(this.apellido1);
         hash = 31 * hash + Objects.hashCode(this.apellido2);
+        hash = 31 * hash + Objects.hashCode(this.email);
         hash = 31 * hash + Objects.hashCode(this.usuario);
         hash = 31 * hash + Objects.hashCode(this.password);
         hash = 31 * hash + Objects.hashCode(this.rol);
@@ -149,6 +161,9 @@ public class Usuario implements Serializable {
         if (!Objects.equals(this.apellido2, other.apellido2)) {
             return false;
         }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
         if (!Objects.equals(this.usuario, other.usuario)) {
             return false;
         }
@@ -164,7 +179,7 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "Usuario{" + "idUsuario=" + idUsuario + ", dni=" + dni + ", nombre=" + nombre + 
-                ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", usuario=" + usuario + 
+                ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", email=" + email + ", usuario=" + usuario + 
                 ", password=" + password + ", rol=" + rol + '}';
     }
     
