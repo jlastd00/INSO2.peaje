@@ -33,15 +33,19 @@ public class UsuarioController implements Serializable {
     }
     
     public void registrar() {
+        
+        FacesMessage mensaje = null;
+        
         try {
             EJBUsuario.create(usuario);
-            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado el usuario");
-            FacesContext.getCurrentInstance().addMessage(null, mensaje);
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado el usuario");
         }
-        catch (Exception ex) {
-            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al registrar el usuario");
-            FacesContext.getCurrentInstance().addMessage(null, mensaje);
+        catch (Exception e) {
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", 
+                "No se ha registrado el usuario (Es posible que el dni o el nombre de usuario ya existan)");
         }
+        
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
     
 }
