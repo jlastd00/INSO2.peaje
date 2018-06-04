@@ -24,6 +24,9 @@
                     <p:messages id="mensaje" autoUpdate="false" closable="true" severity="info, fatal, warn"
                                 showDetail="true"/>
                     
+                    <p id="regUs">Registro de vehículos</p>
+                    <p:separator/>
+                    
                     <h:panelGrid id="paneldatosVehiculo" columns="3" style=" margin:auto">        
                         
                         <p:outputLabel for="tipo" value="Tipo de vehículo: " />
@@ -73,6 +76,7 @@
                         <p:message for="pago"/>
                     </h:panelGrid>
                     
+                    <p:separator/>
                     <h:panelGrid styleClass="botonRegistro" columns="1" style="margin: auto">
                         <p:commandButton update="paneldatosVehiculo, mensaje" value="Registrar Vehiculo" 
                                         actionListener="#{vehiculoController.registrar()}"/>

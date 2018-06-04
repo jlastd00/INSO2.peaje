@@ -24,6 +24,9 @@
                     <p:messages id="mensaje" autoUpdate="false" closable="true" severity="info, fatal, warn"
                                 showDetail="true"/>
                     
+                    <p id="regUs">Registro de usuarios</p>
+                    <p:separator/>
+                    
                     <h:panelGrid id="panelDatos" columns="3" style="margin: auto">        
                         
                         <p:outputLabel for="nombre" value="Nombre:" />
@@ -75,8 +78,9 @@
 
                     </h:panelGrid>
 
+                    <p:separator/>
                     <h:panelGrid columns="1" style="margin: 0 auto">
-                        <p:commandButton icon="ui-icon-check" value="Registrar" update="panelDatos, mensaje"
+                        <p:commandButton icon="ui-icon-check" value="Registrar Usuario" update="panelDatos, mensaje"
                                          actionListener="#{usuarioController.registrar()}"/>
                     </h:panelGrid>
                    
