@@ -1,9 +1,8 @@
-
 #top {
     position: relative;
     background-color: #036fab;
     color: white;
-    padding: 5px;
+    padding: 14px;
     margin: 0px 0px 10px 0px;
 }
 
@@ -59,3 +58,26 @@
 }
 
 
+
+
+
+#cerrarSesion {
+    float: right;
+}
+
+#bienvenido {
+    font-size: 12px;
+    font-weight: bold; 
+}
+
+#regVe {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#regUs {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
