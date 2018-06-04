@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Facelets Template</title>
+        <title>Peaje</title>
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />
     </h:head>
 
@@ -19,11 +19,13 @@
         <div id="top">
             <ui:insert name="top">
                 PEAJE
-                <h:form>
-                    <p:commandButton value="Cerrar Sesión"
+                <div id="cerrarSesion">
+                    <h:form>
+                        <p:commandButton id="cerrarSesion" value="Cerrar Sesión"
                                      actionListener="#{loginController.cerrarSesion()}"
                                      action="./../index?faces-redirect=true" />
-                </h:form>
+                    </h:form>
+                </div>
             </ui:insert>
         </div>
         
@@ -32,7 +34,7 @@
         </div>
 
         <div id="bottom">
-            <ui:insert name="bottom">&copy; juanra - manu - alex</ui:insert>
+            <ui:insert name="bottom">&copy; Copyright 2018. All Rights Reserved. Juan Ramón - Manuel - Alejandro</ui:insert>
         </div>
 
     </h:body>
