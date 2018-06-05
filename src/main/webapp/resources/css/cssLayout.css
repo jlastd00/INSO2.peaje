@@ -1,6 +1,6 @@
 #top {
     position: relative;
-    background-color: #036fab;
+    background-color: #64aad1;
     color: white;
     padding: 14px;
     margin: 0px 0px 10px 0px;
@@ -8,7 +8,7 @@
 
 #bottom {
     position: relative;
-    background-color: #c2dfef;
+    background-color: #64aad1;
     padding: 5px;
     margin: 10px 0px 0px 0px;
 }
@@ -29,7 +29,7 @@
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: #d0e3ed;
     padding: 5px;
 }
 
@@ -61,9 +61,7 @@
 
 
 
-#cerrarSesion {
-    float: right;
-}
+
 
 #bienvenido {
     font-size: 12px;
@@ -74,6 +72,53 @@
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+}
+
+#tablaTopLogin {
+    width: 100%;
+}
+
+#tablaBottomLogin {
+    width: 100%;
+}
+
+#imagenLogin1 {
+    width: 150px;
+    height: 150px;
+}
+
+#tituloPeaje {
+    font-style: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#imagenLogin2 {
+    width: 150px;
+    height: 150px;
+}
+#coche {
+    width: 220px;
+    height: 150px;
+}
+
+#moto {
+    width: 200px;
+    height: 150px;
+}
+
+#camion {
+    width: 250px;
+    height: 180px;
+}
+
+#bus {
+    width: 250px;
+    height: 170px;
+}
+
+#cerrarSesion {
+    float: right;
 }
 
 #regVe {

@@ -16,7 +16,15 @@
 
         <ui:composition template="./WEB-INF/template/plantillaLogin.xhtml">
             
-            <ui:define name="top"/>
+            <ui:define name="top">
+                <table id="tablaTopLogin">
+                    <tr>
+                        <th><p:graphicImage id="imagenLogin1" value="resources/logo.png"/></th>
+                        <th><p id="tituloPeaje">PEAJE</p></th>
+                        <th><p:graphicImage id="imagenLogin2" value="resources/logo.png"/></th>
+                    </tr>
+                </table>
+            </ui:define>
             
             <ui:define name="content">
                 
@@ -51,7 +59,16 @@
                 
             </ui:define>
             
-            <ui:define name="bottom"> </ui:define>
+            <ui:define name="bottom">
+                <table id="tablaBottomLogin">
+                    <tr>
+                        <th><p:graphicImage id="coche" value="resources/coche.png"/></th>
+                        <th><p:graphicImage id="camion" value="resources/camion.png"/></th>
+                        <th><p:graphicImage id="moto" value="resources/moto.png"/></th>
+                        <th><p:graphicImage id="bus" value="resources/bus.png"/></th>
+                    </tr>
+                </table>
+            </ui:define>
             
         </ui:composition>
 
