@@ -82,13 +82,16 @@
     width: 100%;
 }
 
+#tablaTopCabecera {
+    width: 100%;
+}
+
 #imagenLogin1 {
     width: 150px;
     height: 150px;
 }
 
 #tituloPeaje {
-    font-style: 0;
     font-size: 32px;
     font-weight: bold;
 }
@@ -97,6 +100,20 @@
     width: 150px;
     height: 150px;
 }
+
+#tituloPeajePlantilla {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#tituloPeajePlantillaRelleno {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: #64aad1;
+}
+
 #coche {
     width: 220px;
     height: 150px;

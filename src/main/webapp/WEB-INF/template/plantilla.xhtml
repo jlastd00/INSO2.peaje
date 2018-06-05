@@ -18,14 +18,25 @@
         
         <div id="top">
             <ui:insert name="top">
-                PEAJE
-                <div id="cerrarSesion">
-                    <h:form>
-                        <p:commandButton id="cerrarSesion" value="Cerrar Sesión"
+                <table id="tablaTopCabecera">
+                    <tr>
+                        <div id="peaje">
+                            <th><p id="tituloPeajePlantillaRelleno">PEAJE</p></th>
+                        </div>
+                        <div id="peaje">
+                            <th><p id="tituloPeajePlantilla">PEAJE</p></th>
+                        </div>
+                        <th>
+                            <div id="cerrarSesion">
+                                <h:form>
+                                    <p:commandButton id="botonCerrarSesion" value="Cerrar Sesión"
                                      actionListener="#{loginController.cerrarSesion()}"
                                      action="./../index?faces-redirect=true" />
-                    </h:form>
-                </div>
+                                </h:form>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
             </ui:insert>
         </div>
         
