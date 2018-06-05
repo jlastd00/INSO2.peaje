@@ -14,7 +14,7 @@
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />
     </h:head>
 
-    <h:body style="background-image: url(./../../resources/fondo.jpg)">
+    <h:body style="background-image: url(./../../resources/images/fondo.jpg)">
         
         <div id="top">
             <ui:insert name="top">
@@ -29,7 +29,7 @@
                         <th>
                             <div id="cerrarSesion">
                                 <h:form>
-                                    <p:commandButton id="botonCerrarSesion" value="Cerrar Sesión"
+                                    <p:commandButton id="botonCerrarSesion" icon="ui-icon-power" value="Salir"
                                      actionListener="#{loginController.cerrarSesion()}"
                                      action="./../index?faces-redirect=true" />
                                 </h:form>
