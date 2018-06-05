@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Vehiculos</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -16,35 +17,114 @@
         <ui:composition template="./../WEB-INF/template/plantilla.xhtml">
 
             <ui:define name="content">
+                
+                <h:form id="formDatosVe">
+                    
+                    <p:dataTable id="tablaDatosVe" value="#{dataController.vehiculos}" var="ve">
+
+                        <p:column headerText="Matrícula">
+                            <h:outputText value="#{ve.matricula}"/>
+                        </p:column>
+                        <p:column headerText="Tipo de vehiculo">
+                            <h:outputText value="#{ve.tipoVehiculo}"/>
+                        </p:column>
+                        <p:column headerText="Marca">
+                            <h:outputText value="#{ve.marca}"/>
+                        </p:column>
+                        <p:column headerText="Modelo">
+                            <h:outputText value="#{ve.modelo}"/>
+                        </p:column>
+                        <p:column headerText="Color">
+                            <h:outputText value="#{ve.color}"/>
+                        </p:column>
+                        <p:column headerText="Forma de pago">
+                            <h:outputText value="#{ve.pago}"/>
+                        </p:column>
+                        <p:column headerText="Fecha de registro">
+                            <h:outputText value="#{ve.fechaRegistro}">
+                                <f:convertDateTime pattern="dd/MM/YYYY - HH:mm"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="" style="text-align: center">
+                            <p:commandLink value="Modificar" actionListener="#{dataController.getVehiculoSelect(ve)}"
+                                           oncomplete="PF('wdialogVe').show()" update=":formModifVe:dialogVe">
+                            </p:commandLink>
+                        </p:column>
+
+                    </p:dataTable>
+                    
+                </h:form>
+
+                <h:form id="formModifVe"> 
+                    
+                    <p:dialog id="dialogVe" header="Modificar datos vehiculos" widgetVar="wdialogVe" modal="true"
+                              style="min-height: 100px; min-width: 120px" >
+
+                        <p:growl id="msj" showDetail="true" severity="error, info"/>
+
+                            <h:panelGrid id="panelDatos" columns="2">        
+
+                                <p:outputLabel for="tipo" value="Tipo de vehículo: " />
+                                <p:selectOneRadio id="tipo" required="true" style="width: 120px" 
+                                                 value="#{dataController.vehiculo.tipoVehiculo}" >
+                                    <f:selectItem itemLabel="Coche" itemValue="coche" />
+                                    <f:selectItem itemLabel="Camión" itemValue="camion" />
+                                    <f:selectItem itemLabel="Motocicleta" itemValue="moto" />
+                                    <f:selectItem itemLabel="Autobús" itemValue="bus" />
+                                </p:selectOneRadio>
                                 
-                <p:dataTable value="#{dataController.vehiculos}" var="ve">
+                                <p:outputLabel for="matricula" value="Matricula:" />
+                                <p:inputMask id="matricula" mask="9999aaa" required="true" requiredMessage="Matricula no puede ser vacío" 
+                                             style="width: 140px" value="#{dataController.vehiculo.matricula}"/>
+                                
+                                <p:outputLabel for="marca" value="Marca:" />
+                                <p:inputText id="marca" required="true" requiredMessage="Marca no puede ser vacío" 
+                                             style="width: 140px" value="#{dataController.vehiculo.marca}"/>
+                                
+                                <p:outputLabel for="modelo" value="Modelo:" />
+                                <p:inputText id="modelo" required="true" requiredMessage="Modelo no puede ser vacío" 
+                                             style="width: 140px" value="#{dataController.vehiculo.modelo}"/>
+                                
+                                <p:outputLabel for="color" value="Color:" />
+                                <p:selectOneMenu id="color" required="true" style="width: 120px" 
+                                                 value="#{dataController.vehiculo.color}">
+                                    <f:selectItem itemLabel="Rojo" itemValue="rojo" />
+                                    <f:selectItem itemLabel="Blanco" itemValue="blanco" />
+                                    <f:selectItem itemLabel="Negro" itemValue="negro" />
+                                    <f:selectItem itemLabel="Azul" itemValue="azul" />
+                                    <f:selectItem itemLabel="Verde" itemValue="verde" />
+                                    <f:selectItem itemLabel="Gris" itemValue="gris" />
+                                    <f:selectItem itemLabel="Amarillo" itemValue="amarillo" />
+                                </p:selectOneMenu>
+                                
+                                <p:outputLabel for="pago" value="Pago:" />
+                                <p:selectOneRadio id="pago" required="true" requiredMessage="Debes seleccionar forma de pago" 
+                                                  style="width: 140px" value="#{dataController.vehiculo.pago}">
+                                    <f:selectItem itemLabel="Efectivo" itemValue="efectivo" />
+                                    <f:selectItem itemLabel="Tarjeta" itemValue="tarjeta" />
+                                </p:selectOneRadio>
+                                
+                            </h:panelGrid>
+                        
+                            <p:separator/>
+                            <h:panelGrid columns="3">
+                                <p:commandButton value="Aceptar" actionListener="#{dataController.modificarVehiculo()}" 
+                                                update=":formDatosVe:tablaDatosVe, msj" onclick="PF('wdialogVe').hide();"
+                                                icon="ui-icon-check">
+                                    <p:confirm message="#{dataController.confirmV}" 
+                                               icon="ui-icon-alert" header="Confirma la acción que quieres realizar"/>
+                                </p:commandButton>
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog>
+                                <p:commandButton icon="ui-icon-close" value="Cancelar" immediate="true" onclick="PF('wdialogVe').hide();" >
+                                </p:commandButton>  
+                            </h:panelGrid>
+
+                    </p:dialog>
                     
-                    <p:column headerText="Matrícula">
-                        <h:outputText value="#{ve.matricula}"/>
-                    </p:column>
-                    <p:column headerText="Tipo de vehiculo">
-                        <h:outputText value="#{ve.tipoVehiculo}"/>
-                    </p:column>
-                    <p:column headerText="Marca">
-                        <h:outputText value="#{ve.marca}"/>
-                    </p:column>
-                    <p:column headerText="Modelo">
-                        <h:outputText value="#{ve.modelo}"/>
-                    </p:column>
-                    <p:column headerText="Color">
-                        <h:outputText value="#{ve.color}"/>
-                    </p:column>
-                    <p:column headerText="Forma de pago">
-                        <h:outputText value="#{ve.pago}"/>
-                    </p:column>
-                    <p:column headerText="Fecha de registro">
-                        <h:outputText value="#{ve.fechaRegistro}"/>
-                    </p:column>
-                    <p:column headerText="">
-                        <p:link value="Modificar" />
-                    </p:column>
-                    
-                </p:dataTable>
+                </h:form>                
                 
             </ui:define>
 
