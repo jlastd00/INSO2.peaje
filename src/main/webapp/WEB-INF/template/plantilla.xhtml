@@ -29,9 +29,22 @@
                         <th>
                             <div id="cerrarSesion">
                                 <h:form>
-                                    <p:commandButton id="botonCerrarSesion" icon="ui-icon-power" value="Cerrar Sesión"
-                                     actionListener="#{loginController.cerrarSesion()}"
-                                     action="./../index?faces-redirect=true" />
+                                    <table>
+                                        <tr>
+                                            <td style="text-align: left; padding-bottom: 5px;">
+                                                <h:outputLabel value="#{plantillaController.usLog.nombre} 
+                                                    #{plantillaController.usLog.apellido1}"/>
+                                            
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <p:commandButton id="botonCerrarSesion" icon="ui-icon-power" value="Cerrar Sesión"
+                                             actionListener="#{loginController.cerrarSesion()}"
+                                             action="./../index?faces-redirect=true" />
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </h:form>
                             </div>
                         </th>
