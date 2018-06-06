@@ -20,6 +20,8 @@
                 
                 <h:form id="formDatosVe">
                     
+                    <p:growl id="msjEliminado" showDetail="true" severity="error, info"/>
+                    
                     <p:dataTable id="tablaDatosVe" value="#{dataController.vehiculos}" var="ve">
 
                         <p:column headerText="Matrícula">
@@ -50,7 +52,19 @@
                                            oncomplete="PF('wdialogVe').show()" update=":formModifVe:dialogVe">
                             </p:commandLink>
                         </p:column>
-
+                        <p:column headerText="" style="text-align: center">
+                            <p:commandLink value="Eliminar" actionListener="#{vehiculoController.eliminarVehiculo(ve)}"
+                                           update=":formDatosVe:msjEliminado, :formDatosVe">
+                                <p:confirm message="¿Seguro que quieres eliminar este vehículo? Una vez eliminado no se podrá recuperar" 
+                                           icon="ui-icon-alert" header="Confirmar acción"/>
+                            </p:commandLink>
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" 
+                                                 icon="ui-icon-check" update="tablaDatosEm"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
+                        </p:column>
+                        
                     </p:dataTable>
                     
                 </h:form>
