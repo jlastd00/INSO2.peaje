@@ -20,6 +20,8 @@
                 
                 <h:form id="formDatosEm">
                     
+                    <p:growl id="msjEliminado" showDetail="true" severity="error, info"/>
+                    
                     <p:dataTable id="tablaDatosEm" value="#{dataController.usuarios}" var="us">
 
                         <p:column headerText="Nombre">
@@ -49,7 +51,18 @@
                                            rendered="#{us.rol != 'A'}">
                             </p:commandLink>
                         </p:column>
-                        
+                        <p:column headerText="" style="text-align: center">
+                            <p:commandLink value="Eliminar" actionListener="#{usuarioController.eliminarUsuario(us)}"
+                                           rendered="#{us.rol != 'A'}" update=":formDatosEm:msjEliminado, :formDatosEm:tablaDatosEm">
+                                <p:confirm message="¿Seguro que quieres eliminar este usuario? Una vez eliminado no se podrá recuperar" 
+                                           icon="ui-icon-alert" header="Confirmar acción"/>
+                            </p:commandLink>
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" 
+                                                 icon="ui-icon-check" update="tablaDatosEm"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
+                        </p:column>
                     </p:dataTable>
                     
                 </h:form>
@@ -101,7 +114,7 @@
                                                 update=":formDatosEm:tablaDatosEm, msj" onclick="PF('wdialogEm').hide();"
                                                 icon="ui-icon-check">
                                     <p:confirm message="#{dataController.confirmU}" 
-                                               icon="ui-icon-alert" header="Confirma la acción que quieres realizar"/>
+                                               icon="ui-icon-alert" header="Confirmar acción"/>
                                 </p:commandButton>
                                 <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                                     <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>

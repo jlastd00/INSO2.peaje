@@ -48,4 +48,19 @@ public class UsuarioController implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
     
+    public void eliminarUsuario(Usuario us) {
+        FacesMessage mensaje = null;
+        
+        try {
+            EJBUsuario.remove(us);
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "El usuario se ha eliminado");
+        }
+        catch (Exception e) {
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", 
+                "No se ha podido eliminar el usuario");
+        }
+        
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+    }
+    
 }

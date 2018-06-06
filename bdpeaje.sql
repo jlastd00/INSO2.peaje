@@ -34,7 +34,8 @@ CREATE TABLE `vehiculos` (
   PRIMARY KEY (`idVehiculo`, `idUsuario`),
   INDEX `FK_idUsuario` (`idUsuario`),
   UNIQUE INDEX `MATRICULA_UNIQUE` (`matricula`),
-  CONSTRAINT `FK_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT `FK_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) 
+  ON UPDATE CASCADE ON DELETE CASCADE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB

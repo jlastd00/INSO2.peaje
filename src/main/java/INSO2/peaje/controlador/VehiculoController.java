@@ -62,5 +62,20 @@ public class VehiculoController implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
     
+    public void eliminarVehiculo(Vehiculo ve) {
+        FacesMessage mensaje = null;
+        
+        try {
+            EJBVehiculo.remove(ve);
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "El vehículo se ha eliminado");
+        }
+        catch (Exception e) {
+            mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", 
+                "No se ha podido eliminar el vehículo");
+        }
+        
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+    }
+    
     
 }
