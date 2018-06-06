@@ -20,10 +20,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
-/**
- *
- * @author juanra
- */
 
 @Entity
 @Table(name="vehiculos")
