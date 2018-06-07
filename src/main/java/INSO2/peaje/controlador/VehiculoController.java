@@ -80,5 +80,21 @@ public class VehiculoController implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
     
+    /* METODO UTILIZADO PARA LA PRUEBA DE CAJA NEGRA
+    
+    public boolean VehiculoPeaje(String matricula) {
+        this.licensePl = matricula;
+	boolean correcto = true;
+		
+	Pattern pattern = Pattern.compile("^[0-9]{4}[A-Z]{3}$");
+        Matcher matcher = pattern.matcher(licensePl);
+		
+	while (!matcher.matches()) {
+            correcto = false;
+            break;
+	}
+	return correcto;
+    }
+    */
     
 }

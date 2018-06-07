@@ -1,5 +1,4 @@
 #top {
-    height: 33%;
     position: relative;
     background-color: #64aad1;
     color: white;
@@ -8,7 +7,6 @@
 }
 
 #bottom {
-    height: 33%;
     position: relative;
     background-color: #64aad1;
     padding: 5px;
@@ -30,7 +28,6 @@
 }
 
 .center_content {
-    height: 33%;
     position: relative;
     background-color: #d0e3ed;
     padding: 5px;
