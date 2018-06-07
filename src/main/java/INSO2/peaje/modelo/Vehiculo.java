@@ -48,7 +48,7 @@ public class Vehiculo implements Serializable {
     private String pago;
     
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="fechaRegistro", insertable = false)
+    @Column(name="fechaRegistro")
     private Date fechaRegistro;
     
     @ManyToOne

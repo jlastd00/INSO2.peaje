@@ -5,6 +5,7 @@ import INSO2.peaje.EJB.VehiculoFacadeLocal;
 import INSO2.peaje.modelo.Usuario;
 import INSO2.peaje.modelo.Vehiculo;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -49,6 +50,8 @@ public class VehiculoController implements Serializable {
         FacesMessage mensaje = null;
         Usuario usuario = (Usuario) fc.getExternalContext().getSessionMap().get("usuario");
         vehiculo.setUsuario(usuario);
+        Date fechaHoy = new Date();
+        vehiculo.setFechaRegistro(fechaHoy);
         
         try {
             EJBVehiculo.create(vehiculo);

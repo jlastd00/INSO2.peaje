@@ -12,7 +12,7 @@
         <h:outputStylesheet name="./resources/css/cssLayout.css"/>
     </h:head>
     
-    <body>
+    <h:body>
 
         <ui:composition template="./../WEB-INF/template/plantilla.xhtml">
 
@@ -44,7 +44,7 @@
                         </p:column>
                         <p:column headerText="Fecha de registro">
                             <h:outputText value="#{ve.fechaRegistro}">
-                                <f:convertDateTime pattern="dd/MM/YYYY - HH:mm" />
+                                <f:convertDateTime pattern="dd/MM/YYYY HH:mm"/>
                             </h:outputText>
                         </p:column>
                         <p:column headerText="" style="text-align: center">
@@ -60,7 +60,7 @@
                             </p:commandLink>
                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                                 <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" 
-                                                 icon="ui-icon-check" update="tablaDatosEm"/>
+                                                 icon="ui-icon-check" />
                                 <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
                             </p:confirmDialog>
                         </p:column>
@@ -144,5 +144,5 @@
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>

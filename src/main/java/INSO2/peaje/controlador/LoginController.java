@@ -38,16 +38,16 @@ public class LoginController implements Serializable {
         String redireccion = null;
         try {
             us = EJBUsuario.iniciarSesion(usuario);
-            if (us != null) {
+            if (us != null) { 
                 // Almacenar en la sesion de JSF
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us); 
                 if (us.getRol().equals("A")) {
                     redireccion = "/private/menuAdmin?faces-redirect=true";
                 }
-                if (us.getRol().equals("E")) {
+                else if (us.getRol().equals("E")) {
                     redireccion = "/private/menuEmpleado?faces-redirect=true";
                 }
-                if (us.getRol().equals("S")) {
+                else {
                     redireccion = "/private/menuSupervisor?faces-redirect=true";
                 }
             }
